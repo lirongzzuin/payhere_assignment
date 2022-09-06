@@ -101,11 +101,14 @@ public class AccountBookService {
 
     // 가계부 삭제
     public ResponseEntity deleteAccountBook(Long id, String username) {
-        AccountBook accountBook = accountBookRepository.findById(id).orElseThrow(
+        AccountBook accountBook = new AccountBook();
+        AccountBook deleteAccountBook = accountBookRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 가계부가 없습니다.")
         );
-        if(accountBook.getUsername().equals(username)) {
-            accountBookRepository.delete(accountBook);
+        if(deleteAccountBook.getUsername().equals(username)) {
+            accountBook.setTotalAsset(deleteAccountBook.getTotalAsset() - deleteAccountBook.getIncome() + deleteAccountBook.getExpense());
+            accountBookRepository.save(accountBook);
+            accountBookRepository.delete(deleteAccountBook);
             return new ResponseEntity("삭제성공", HttpStatus.OK);
         }else{
             throw new IllegalArgumentException("해당 가계부를 삭제할 권한이 없습니다.");
