@@ -99,8 +99,6 @@ public class AccountBookService {
                 .collect(Collectors.toList());
     }
 
-
-
     // 가계부 삭제
     public ResponseEntity deleteAccountBook(Long id, String username) {
         AccountBook accountBook = accountBookRepository.findById(id).orElseThrow(
