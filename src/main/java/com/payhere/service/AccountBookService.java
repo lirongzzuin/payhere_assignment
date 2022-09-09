@@ -37,7 +37,6 @@ public class AccountBookService {
         return new ResponseEntity("등록성공", HttpStatus.OK);
     }
 
-
     // 해당 유저가 작성한 가계부 전체 조회
     public List<AccountBookResponseDto> getAccountBooks(UserDetailsImpl userDetails) {
         List<AccountBook> accountBooks = accountBookRepository.findAllByUsernameOrderByModifiedAtDesc(userDetails.getUsername());
@@ -51,7 +50,6 @@ public class AccountBookService {
         );
         return AccountBookResponseDto.fromAccountBook(accountBook);
     }
-
 
     // AccountBook -> AccountBookResponseDto
     public List<AccountBookResponseDto> makeList(List<AccountBook> accountBookList) {
