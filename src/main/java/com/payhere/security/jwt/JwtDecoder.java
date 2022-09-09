@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.Optional;
 
-import static com.opusm_assignment.security.jwt.JwtTokenUtils.*;
+import static com.payhere.security.jwt.JwtTokenUtils.*;
 
 @Component
 public class JwtDecoder {

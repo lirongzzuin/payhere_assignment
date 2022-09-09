@@ -1,9 +1,9 @@
 package com.payhere.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opusm_assignment.dto.userDto.LoginResponseDto;
-import com.opusm_assignment.model.User;
-import com.opusm_assignment.security.jwt.JwtTokenUtils;
+import com.payhere.dto.userDto.LoginResponseDto;
+import com.payhere.model.User;
+import com.payhere.security.jwt.JwtTokenUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
